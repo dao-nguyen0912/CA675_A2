@@ -6,7 +6,9 @@
 ### Generated new dataset at the first stage through Python (after defining neccessary columns)
 
 import pandas as pd
+
 import numpy as np
+
 car_df = pd.read_csv('E:\\Dao\\used_cars_data.csv')
 
 car_df_filtered = car_df.loc[:,[ 'model_name', 'franchise_make', 'make_name', 'is_new',  'listed_date', 'daysonmarket','year', 'price', 'savings_amount', 
@@ -42,22 +44,29 @@ car_df_filtered_remove_na = car_df_filtered_remove_na.astype({"city_fuel_economy
 #split objects into numbers and units
 
 car_df_filtered_remove_na[['fuel_tank_volume','fuel_tank_volume_unit']] = car_df_filtered_remove_na.fuel_tank_volume.str.split(" ",expand=True)
+
 car_df_filtered_remove_na[['maximum_seating','maximum_seating_unit']] = car_df_filtered_remove_na.maximum_seating.str.split(" ",expand=True)
 
 car_df_filtered_remove_na = car_df_filtered_remove_na.astype({"fuel_tank_volume":'float64',
                                                              "maximum_seating":'int64'})
 
+
 #find incorrect fuel tank value and max seating and drop them
 
 nan_fuel_tank_value = car_df_filtered_remove_na.loc[car_df_filtered_remove_na.fuel_tank_volume == '--']
+
 car_df_filtered_remove_na = car_df_filtered_remove_na.drop(nan_fuel_tank_value.index)
 
 nan_max_seating_value = car_df_filtered_remove_na.loc[car_df_filtered_remove_na.maximum_seating == '--']
+
 car_df_filtered_remove_na = car_df_filtered_remove_na.drop(nan_max_seating_value.index)
+
+
 
 #view the dataset info
 
 a = car_df_filtered_remove_na.head(10000)
+
 car_df_filtered_remove_na.info()
 
 *********************************************************************************************************
