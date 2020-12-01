@@ -41,7 +41,7 @@ car_df_filtered_remove_na = car_df_filtered_remove_na.astype({"city_fuel_economy
 
 
 
-#split objects into numbers and units
+#pre-process columns including numbers and units --> split objects into numbers and units
 
 car_df_filtered_remove_na[['fuel_tank_volume','fuel_tank_volume_unit']] = car_df_filtered_remove_na.fuel_tank_volume.str.split(" ",expand=True)
 
@@ -49,6 +49,7 @@ car_df_filtered_remove_na[['maximum_seating','maximum_seating_unit']] = car_df_f
 
 car_df_filtered_remove_na = car_df_filtered_remove_na.astype({"fuel_tank_volume":'float64',
                                                              "maximum_seating":'int64'})
+
 
 
 #find incorrect fuel tank value and max seating and drop them
