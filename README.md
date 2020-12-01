@@ -33,7 +33,7 @@ car_df_filtered_remove_na.to_csv('E:\\Dao\\used_cars_data_26columns_removeNan.cs
 ******************TO BE CONSIDERED FOR LATER PRE-PROCESSING****************************************************
 
 
-# it is quite dangerous to change the original data values by forcing data type like this.
+-----it is quite dangerous to change the original data values by forcing data type like this.
 
 car_df_filtered_remove_na = car_df_filtered_remove_na.astype({"city_fuel_economy":'int64',
                                                                 "highway_fuel_economy":'int64',
@@ -42,7 +42,7 @@ car_df_filtered_remove_na = car_df_filtered_remove_na.astype({"city_fuel_economy
 
 
 
-# pre-process columns including numbers and units --> split objects into numbers and units
+-----pre-process columns including numbers and units --> split objects into numbers and units
 
 car_df_filtered_remove_na[['fuel_tank_volume','fuel_tank_volume_unit']] = car_df_filtered_remove_na.fuel_tank_volume.str.split(" ",expand=True)
 
@@ -53,7 +53,7 @@ car_df_filtered_remove_na = car_df_filtered_remove_na.astype({"fuel_tank_volume"
 
 
 
-# find incorrect fuel tank value and max seating and drop them
+-----find incorrect fuel tank value and max seating and drop them
 
 nan_fuel_tank_value = car_df_filtered_remove_na.loc[car_df_filtered_remove_na.fuel_tank_volume == '--']
 
@@ -65,7 +65,7 @@ car_df_filtered_remove_na = car_df_filtered_remove_na.drop(nan_max_seating_value
 
 
 
-# view the dataset info
+-----view the dataset info
 
 a = car_df_filtered_remove_na.head(10000)
 
