@@ -11,15 +11,19 @@ import numpy as np
 
 car_df = pd.read_csv('E:\\Dao\\used_cars_data.csv')
 
+--- filtered neccessary columns
+
 car_df_filtered = car_df.loc[:,[ 'model_name', 'franchise_make', 'make_name', 'is_new',  'listed_date', 'daysonmarket','year', 'price', 'savings_amount', 
                                   'engine_type','body_type','city', 'city_fuel_economy', 'highway_fuel_economy',  'fuel_type', 'fuel_tank_volume', 
                                     'interior_color', 'listing_color', 'description' , 'maximum_seating', 'mileage', 'transmission', 'transmission_display', 
                                       'wheel_system_display',  'latitude', 'longitude' ]]
 
+--- deleted rows with null field(s)
 
 car_df_filtered_remove_na = car_df_filtered.dropna()
 
-# export to csv file
+
+----exported to csv file
 
 car_df_filtered_remove_na.to_csv('E:\\Dao\\used_cars_data_26columns_removeNan.csv')
 
