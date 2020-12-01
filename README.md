@@ -28,11 +28,11 @@ car_df_filtered_remove_na.to_csv('E:\\Dao\\used_cars_data_26columns_removeNan.cs
 ******************TO BE CONSIDERED FOR LATER PRE-PROCESSING****************************************************
 
 
-# it is very dangerous to change the original data values by forcing data type like this.
-# car_df_filtered_remove_na = car_df_filtered_remove_na.astype({"city_fuel_economy":'int64',
-#                                                                "highway_fuel_economy":'int64',
-#                                                                 "mileage":'int64',
-#                                                                   "price":'int64'})
+#it is very dangerous to change the original data values by forcing data type like this.
+#car_df_filtered_remove_na = car_df_filtered_remove_na.astype({"city_fuel_economy":'int64',
+                                                                "highway_fuel_economy":'int64',
+                                                                 "mileage":'int64',
+                                                                   "price":'int64'})
 
 
 
