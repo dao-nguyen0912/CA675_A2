@@ -19,20 +19,21 @@ car_df_filtered = car_df.loc[:,[ 'model_name', 'franchise_make', 'make_name', 'i
 
 car_df_filtered_remove_na = car_df_filtered.dropna()
 
-#export to csv file
+# export to csv file
 
 car_df_filtered_remove_na.to_csv('E:\\Dao\\used_cars_data_26columns_removeNan.csv')
 
----Output is a csv file with 1.832.571 rows and 26 columns.
+# Output is a csv file with 1.832.571 rows and 26 columns.
 
 ---That can be downloaded at: https://drive.google.com/file/d/1p7PJh28Cv7nxN0mX8jlqEUL0zJZLpIPZ/view?usp=sharing (csv file)
+
                               https://drive.google.com/file/d/1nwm0HyH8tBKeq9tAvGZNLlCN-HmluF-c/view?usp=sharing (zip file)
 
 
 ******************TO BE CONSIDERED FOR LATER PRE-PROCESSING****************************************************
 
 
-#it is very dangerous to change the original data values by forcing data type like this.
+# it is quite dangerous to change the original data values by forcing data type like this.
 
 car_df_filtered_remove_na = car_df_filtered_remove_na.astype({"city_fuel_economy":'int64',
                                                                 "highway_fuel_economy":'int64',
@@ -41,7 +42,7 @@ car_df_filtered_remove_na = car_df_filtered_remove_na.astype({"city_fuel_economy
 
 
 
-#pre-process columns including numbers and units --> split objects into numbers and units
+# pre-process columns including numbers and units --> split objects into numbers and units
 
 car_df_filtered_remove_na[['fuel_tank_volume','fuel_tank_volume_unit']] = car_df_filtered_remove_na.fuel_tank_volume.str.split(" ",expand=True)
 
@@ -52,7 +53,7 @@ car_df_filtered_remove_na = car_df_filtered_remove_na.astype({"fuel_tank_volume"
 
 
 
-#find incorrect fuel tank value and max seating and drop them
+# find incorrect fuel tank value and max seating and drop them
 
 nan_fuel_tank_value = car_df_filtered_remove_na.loc[car_df_filtered_remove_na.fuel_tank_volume == '--']
 
@@ -64,7 +65,7 @@ car_df_filtered_remove_na = car_df_filtered_remove_na.drop(nan_max_seating_value
 
 
 
-#view the dataset info
+# view the dataset info
 
 a = car_df_filtered_remove_na.head(10000)
 
